@@ -2,6 +2,7 @@ package com.example.android4lesson1.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -9,7 +10,7 @@ import com.example.android4lesson1.databinding.ItemAnimeBinding
 import com.example.android4lesson1.extension.setImage
 import com.example.android4lesson1.models.DataItem
 
-class AnimeAdapter : ListAdapter<DataItem, AnimeAdapter.ViewHolder>(
+class AnimeAdapter : PagingDataAdapter<DataItem, AnimeAdapter.ViewHolder>(
     AnimeDiffCallBack
 ) {
     inner class ViewHolder(private val binding: ItemAnimeBinding) :
@@ -32,9 +33,8 @@ class AnimeAdapter : ListAdapter<DataItem, AnimeAdapter.ViewHolder>(
     }
 
     override fun onBindViewHolder(holder: AnimeAdapter.ViewHolder, position: Int) {
-        holder.onBind(getItem(position))
+        getItem(position)?.let { holder.onBind(it) }
     }
-}
 
 object AnimeDiffCallBack : DiffUtil.ItemCallback<DataItem>() {
     override fun areItemsTheSame(
@@ -50,4 +50,4 @@ object AnimeDiffCallBack : DiffUtil.ItemCallback<DataItem>() {
     ): Boolean {
         return oldItem.id == newItem.id
     }
-}
+}}

@@ -2,6 +2,7 @@ package com.example.android4lesson1.ui.fragments.manga
 
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.android4lesson1.R
@@ -10,6 +11,7 @@ import com.example.android4lesson1.base.BaseFragment
 import com.example.android4lesson1.databinding.FragmentMangaBinding
 import com.example.android4lesson1.ui.adapter.MangaAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MangaFragment : BaseFragment<FragmentMangaBinding, MangaViewModel>(R.layout.fragment_manga) {
@@ -26,18 +28,12 @@ class MangaFragment : BaseFragment<FragmentMangaBinding, MangaViewModel>(R.layou
     }
 
     override fun setupObserve() {
-        viewModel.fetchManga().observe(viewLifecycleOwner) {
-            when (it) {
-                is Resource.Error<*> -> {
-                    Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
-                }
-                is Resource.Loading<*> -> {}
-                is Resource.Success<*> -> {
-                    it.data?.let { it1 ->
-                        mangaAdapter.submitList(it1.data)
-                    }
-                }
+        super.setupObserve()
+            viewModel.fetchManga().observe(viewLifecycleOwner) {
+                lifecycleScope.launch {
+                mangaAdapter.submitData(it)
             }
         }
     }
+
 }

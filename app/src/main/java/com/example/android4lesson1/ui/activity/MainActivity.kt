@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.android4lesson1.R
 import com.example.android4lesson1.databinding.ActivityMainBinding
+import com.example.android4lesson1.databinding.TabLayoutBinding
 import com.example.android4lesson1.ui.adapter.ViewPagerAdapter
 import com.example.android4lesson1.ui.fragments.anime.AnimeFragment
 import com.example.android4lesson1.ui.fragments.manga.MangaFragment
@@ -14,11 +15,11 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding:ActivityMainBinding
+    private lateinit var binding:TabLayoutBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       binding = ActivityMainBinding.inflate(layoutInflater)
+       binding = TabLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initialize()
     }
