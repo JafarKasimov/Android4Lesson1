@@ -6,7 +6,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android4lesson1.databinding.ItemAnimeBinding
-import com.example.android4lesson1.extension.setImage
+import com.example.android4lesson1.extensions.setImage
 import com.example.android4lesson1.models.DataItem
 
 class AnimeAdapter(val onItemClick: (id : String) -> Unit) :
