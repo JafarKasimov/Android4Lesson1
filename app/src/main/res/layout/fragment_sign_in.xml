@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:background="@drawable/img"
     android:orientation="vertical"
     tools:context=".ui.fragments.sign.SignInFragment">
 
@@ -13,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:hint="@string/enter_nick_name"
-        android:paddingTop="10dp" />
+        android:paddingTop="15dp"/>
 
     <EditText
         android:id="@+id/inputLayout_password"
@@ -21,14 +22,15 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:hint="@string/passvord"
-        android:paddingTop="10dp" />
+        android:paddingTop="15dp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/sign_in_btn"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Sign in"
-        android:textAllCaps="false" />
+        android:layout_marginTop="200dp"
+        android:text="@string/sign_in"
+        android:textAllCaps="false"/>
 
 </LinearLayout>

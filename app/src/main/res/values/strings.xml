@@ -22,4 +22,16 @@
     <string name="passvord">passvord</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="details">details</string>
+    <string name="episodes">episodes</string>
+    <string name="status">status</string>
+    <string name="premiered">premiered</string>
+    <string name="age_rating">age_rating</string>
+    <string name="chapters">chapters</string>
+    <string name="todo">TODO</string>
+    <string name="todoimage">TODO</string>
+    <string name="todoimage2">TODO</string>
+    <string name="sign_in">Sign in</string>
+    <string name="introductionkitsu_is_a_modern_anime_discovery_platform_that_helps_you_track_the_anime_you_re_watching_discover_new_anime_and_socialize_with_other_fans_with_the_kitsu_api_you_can_do_everything_the_client_can_do_and_much_more_base_api_path_https_kitsu_io_api_edgejson_apithe_kitsu_api_implements_the_json_api_specification_this_means_there_are_some_notable_semantics_to_how_you_consume_it_but_understanding_it_will_take_a_lot_of_the_work_of_using_it_out_of_your_hands">INTRODUCTIONKitsu is a modern anime discovery platform that helps you track the anime you\'re watching, discover new anime and socialize with other fans.With the Kitsu API you can do everything the client can do and much more.Base API path: https://kitsu.io/api/edgeJSON:APIThe Kitsu API implements the JSON:API specification. This means there are some notable semantics to how you consume it, but understanding it will take a lot of the work of using it out of your hands.</string>
+    <string name="introductionkitsu_is_a_modern_anime_discovery_platform_that_helps_you_track_the_anime_you_re_watching_discover_new_anime_and_socialize_with_other_fans_with_the_kitsu_api_you_can_do_everything_the_client_can_do_and_much_more_base_api_path_https_kitsu_io_api_edgejson_apithe_kitsu_api_implements_the_json_api_specification_this_means_there_are_some_notable_semantics_to_how_you_consume_it_but_understanding_it_will_take_a_lot_of_the_work_of_using_it_out_of_your_hands_">INTRODUCTIONKitsu is a modern anime discovery platform that helps you track the anime you\'re watching, discover new anime and socialize with other fans.With the Kitsu API you can do everything the client can do and much more.Base API path: https://kitsu.io/api/edgeJSON:APIThe Kitsu API implements the JSON:API specification. This means there are some notable semantics to how you consume it, but understanding it will take a lot of the work of using it out of your hands.</string>
 </resources>

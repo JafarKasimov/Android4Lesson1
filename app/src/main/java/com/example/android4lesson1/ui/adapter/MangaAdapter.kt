@@ -4,10 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android4lesson1.databinding.ItemMangaBinding
-import com.example.android4lesson1.extension.setImage
+import com.example.android4lesson1.extensions.setImage
 import com.example.android4lesson1.models.DataItem
 
 class MangaAdapter(val onItemClick: (id : String) -> Unit):
