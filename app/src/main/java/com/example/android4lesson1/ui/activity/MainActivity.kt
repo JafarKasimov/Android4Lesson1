@@ -1,42 +1,45 @@
 package com.example.android4lesson1.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import com.example.android4lesson1.R
-import com.example.android4lesson1.databinding.ActivityMainBinding
-import com.example.android4lesson1.databinding.TabLayoutBinding
-import com.example.android4lesson1.ui.adapter.ViewPagerAdapter
-import com.example.android4lesson1.ui.fragments.anime.AnimeFragment
-import com.example.android4lesson1.ui.fragments.manga.MangaFragment
-import com.google.android.material.tabs.TabLayoutMediator
+import com.example.android4lesson1.data.local.preferences.PreferencesHelper
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding:TabLayoutBinding
+    private lateinit var navController: NavController
+
+    @Inject
+   lateinit var preferencesHelper: PreferencesHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       binding = TabLayoutBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        initialize()
+        setContentView(R.layout.activity_main)
+        setupNavigation()
     }
 
-    private fun initialize() {
-        val adapter = ViewPagerAdapter(supportFragmentManager, lifecycle)
-        binding.viewPager.adapter = adapter
+    private fun setupNavigation() {
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+         navController = navHostFragment.navController
+        setStartDestination()
+    }
 
-        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
-            when (position) {
-                0 -> {
-                    tab.text = "Anime"
-                }
-                1 -> {
-                    tab.text = "Manga"
-                }
+    private fun setStartDestination(){
+        val navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
+        when{
+            !preferencesHelper.isAuthorize -> {
+                navGraph.setStartDestination(R.id.singFlowFragment)
             }
-        }.attach()
+            else -> {
+                navGraph.setStartDestination(R.id.homeFlowFragment)
+            }
+        }
+        navController.graph = navGraph
     }
 }

@@ -4,17 +4,23 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android4lesson1.databinding.ItemAnimeBinding
 import com.example.android4lesson1.extension.setImage
 import com.example.android4lesson1.models.DataItem
 
-class AnimeAdapter : PagingDataAdapter<DataItem, AnimeAdapter.ViewHolder>(
+class AnimeAdapter(val onItemClick: (id : String) -> Unit) :
+    PagingDataAdapter<DataItem, AnimeAdapter.ViewHolder>(
     AnimeDiffCallBack
 ) {
     inner class ViewHolder(private val binding: ItemAnimeBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            itemView.setOnClickListener {
+                getItem(absoluteAdapterPosition)?.apply {onItemClick(id) }
+            }
+        }
 
         fun onBind(item: DataItem) {
             binding.itemNameTv.text = item.attributes.titles.enJp

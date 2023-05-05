@@ -5,6 +5,9 @@ plugins {
     //Kapt
     kotlin ("kapt")
 
+    //Safe args
+    id ("androidx.navigation.safeargs.kotlin")
+
     //Hilt
     id ("com.google.dagger.hilt.android")
 }
@@ -35,7 +38,7 @@ android {
     }
 
     buildFeatures {
-        //ViweBinding
+        //ViewBinding
         viewBinding = true
     }
 
@@ -59,12 +62,12 @@ dependencies {
     implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
 
     implementation ("androidx.legacy:legacy-support-v4:1.0.0")
+
+    // Livedata
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
+
+    //ViewModel
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
-    implementation("androidx.paging:paging-common-ktx:3.1.1")
-    testImplementation ("junit:junit:4.13.2")
-    androidTestImplementation ("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation ("androidx.test.espresso:espresso-core:3.5.1")
 
     // Retrofit 2
     val retrofitVersion = "2.9.0"

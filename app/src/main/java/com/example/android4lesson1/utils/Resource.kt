@@ -1,4 +1,4 @@
-package com.example.android4lesson1
+package com.example.android4lesson1.utils
 
 sealed class Resource<out T>(
     val data: T? = null,

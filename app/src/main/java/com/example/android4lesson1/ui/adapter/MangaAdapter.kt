@@ -10,11 +10,18 @@ import com.example.android4lesson1.databinding.ItemMangaBinding
 import com.example.android4lesson1.extension.setImage
 import com.example.android4lesson1.models.DataItem
 
-class MangaAdapter : PagingDataAdapter<DataItem, MangaAdapter.ViewHolder>(
+class MangaAdapter(val onItemClick: (id : String) -> Unit):
+    PagingDataAdapter<DataItem, MangaAdapter.ViewHolder>(
     MangaDiffCallBack
 ) {
     inner class ViewHolder(private val binding: ItemMangaBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            itemView.setOnClickListener {
+                getItem(absoluteAdapterPosition)?.apply {onItemClick(id) }
+            }
+        }
 
         fun onBind(item: DataItem) {
             binding.itemNameMangaTv.text = item.attributes.titles.enJp
